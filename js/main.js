@@ -96,7 +96,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 彈出視窗功能
+    let currentGiftIndex = 0;
+    const database = firebase.database();
+
+    function loadComments(giftIndex) {
+        const commentsRef = database.ref('comments').child(giftIndex.toString());
+        commentsRef.on('value', (snapshot) => {
+            const commentsList = modal.querySelector('.comments-list');
+            commentsList.innerHTML = '';
+            
+            const comments = snapshot.val() || {};
+            Object.values(comments).reverse().forEach(comment => {
+                const commentElement = document.createElement('div');
+                commentElement.className = 'comment';
+                commentElement.innerHTML = `
+                    <div class="comment-text">${comment.text}</div>
+                    <div class="comment-date">${comment.date} ${comment.time}</div>
+                `;
+                commentsList.appendChild(commentElement);
+            });
+        });
+    }
+
+    function saveComment(giftIndex, text) {
+        const now = new Date();
+        const dateStr = now.toLocaleDateString('zh-TW');
+        const timeStr = now.toLocaleTimeString('zh-TW');
+        
+        const commentsRef = database.ref('comments').child(giftIndex.toString());
+        commentsRef.push({
+            text: text,
+            date: dateStr,
+            time: timeStr,
+            timestamp: Date.now()
+        });
+    }
+
     function showModal(index) {
+        currentGiftIndex = index;
         const modalText = modal.querySelector('.modal-text');
         const gift = giftTexts[index];
         
@@ -112,6 +149,9 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
             pauseCarousel();
+            
+            // 載入該禮物券的評論
+            loadComments(index);
         }
     }
 
@@ -156,19 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const commentText = textarea.value.trim();
         
         if (commentText) {
-            const comment = document.createElement('div');
-            comment.className = 'comment';
-            
-            const now = new Date();
-            const dateStr = now.toLocaleDateString('zh-TW');
-            const timeStr = now.toLocaleTimeString('zh-TW');
-            
-            comment.innerHTML = `
-                <div class="comment-text">${commentText}</div>
-                <div class="comment-date">${dateStr} ${timeStr}</div>
-            `;
-            
-            commentsList.insertBefore(comment, commentsList.firstChild);
+            saveComment(currentGiftIndex, commentText);
             textarea.value = '';
         }
     });

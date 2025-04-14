@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2025 04 14 情人節</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
     <header>
         <h1>2025 04 14 情人節<br>Roy & Gina</h1>
@@ -40,6 +42,24 @@
         <p>&copy; 2025 特別的禮物. All rights reserved.</p>
     </footer>
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script>
+        // Firebase 設定
+        const firebaseConfig = {
+            apiKey: "AIzaSyDtb1GlzNnev7cI5GrTNBQ-Wb8tndc3z_Y",
+            authDomain: "gift-comments.firebaseapp.com",
+            databaseURL: "https://gift-comments-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "gift-comments",
+            storageBucket: "gift-comments.firebasestorage.app",
+            messagingSenderId: "345913360913",
+            appId: "1:345913360913:web:f58e02c4f57f57d841a7b0"
+        };
+        // 初始化 Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
