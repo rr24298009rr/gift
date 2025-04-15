@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gift.AIService", "gift.AIService", "{57117643-79A7-0A52-FC24-E91D921E51DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{97D340CF-7698-2BBC-DF25-EFFABD42720C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gift.AIService.API", "gift.AIService\src\API\gift.AIService.API.csproj", "{9BF3FEED-4883-7E4B-04F7-A19D3C68889E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gift.AIService.Application", "gift.AIService\src\Application\gift.AIService.Application.csproj", "{D5220F92-3D37-191C-06A5-BFFAD0334785}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gift.AIService.Domain", "gift.AIService\src\Domain\gift.AIService.Domain.csproj", "{06810231-F4AD-0C6B-1847-37FD962C58B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gift.AIService.Infrastructure", "gift.AIService\src\Infrastructure\gift.AIService.Infrastructure.csproj", "{013E1123-1194-5D6C-A2F1-7467F446CEE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9BF3FEED-4883-7E4B-04F7-A19D3C68889E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BF3FEED-4883-7E4B-04F7-A19D3C68889E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BF3FEED-4883-7E4B-04F7-A19D3C68889E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BF3FEED-4883-7E4B-04F7-A19D3C68889E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5220F92-3D37-191C-06A5-BFFAD0334785}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5220F92-3D37-191C-06A5-BFFAD0334785}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5220F92-3D37-191C-06A5-BFFAD0334785}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5220F92-3D37-191C-06A5-BFFAD0334785}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06810231-F4AD-0C6B-1847-37FD962C58B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06810231-F4AD-0C6B-1847-37FD962C58B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06810231-F4AD-0C6B-1847-37FD962C58B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06810231-F4AD-0C6B-1847-37FD962C58B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{013E1123-1194-5D6C-A2F1-7467F446CEE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{013E1123-1194-5D6C-A2F1-7467F446CEE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{013E1123-1194-5D6C-A2F1-7467F446CEE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{013E1123-1194-5D6C-A2F1-7467F446CEE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{97D340CF-7698-2BBC-DF25-EFFABD42720C} = {57117643-79A7-0A52-FC24-E91D921E51DE}
+		{9BF3FEED-4883-7E4B-04F7-A19D3C68889E} = {97D340CF-7698-2BBC-DF25-EFFABD42720C}
+		{D5220F92-3D37-191C-06A5-BFFAD0334785} = {97D340CF-7698-2BBC-DF25-EFFABD42720C}
+		{06810231-F4AD-0C6B-1847-37FD962C58B8} = {97D340CF-7698-2BBC-DF25-EFFABD42720C}
+		{013E1123-1194-5D6C-A2F1-7467F446CEE4} = {97D340CF-7698-2BBC-DF25-EFFABD42720C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C48623CE-8C19-4BAD-8CC6-5606C8DE59B6}
+	EndGlobalSection
+EndGlobal

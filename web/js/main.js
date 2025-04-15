@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // DOM 元素
     const carousel = document.querySelector('.carousel');
-    const modal = document.getElementById('giftModal');  // 修正 modal ID
+    const modal = document.getElementById('giftModal');
     let currentImageIndex = 0;
     let carouselInterval;
     let isPaused = false;
@@ -14,10 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const lines = section.trim().split('\n');
             return {
                 title: lines[0].replace(/【|】/g, ''),
-                imageInfo: lines[1],  // 保留原始格式
-                description: lines[2],  // 保留原始格式，包括表情符號
-                usage: lines[3],  // 保留原始格式
-                extraInfo: lines.slice(4).filter(line => line.trim())  // 保留原始格式
+                imageInfo: lines[1],
+                description: lines[2],
+                usage: lines[3],
+                extraInfo: lines.slice(4).filter(line => line.trim())
             };
         });
     }

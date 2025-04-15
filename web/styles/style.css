@@ -1,0 +1,630 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 1rem 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #ddd;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    padding-bottom: 6rem;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 4rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    margin-top: 2rem;
+    position: relative;
+}
+
+/* 輪播區域樣式 */
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.carousel img {
+    width: 100%;
+    min-width: 100%;
+    height: 500px;
+    object-fit: cover;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.carousel-button.prev { left: 0; }
+.carousel-button.next { right: 0; }
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #333;
+}
+
+/* 彈出視窗樣式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.modal-text {
+    margin-bottom: 1.5rem;
+    white-space: pre-line;
+}
+
+.modal-text h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.modal-text .image-info {
+    color: #666;
+    font-size: 1.1rem;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.modal-text .description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 3px solid #5c85d6;
+}
+
+.modal-text .usage-count {
+    font-size: 1.1rem;
+    color: #2c5282;
+    margin: 1rem 0;
+    padding: 0.8rem 1rem;
+    background: #ebf8ff;
+    border-radius: 8px;
+}
+
+.modal-text .extra-info {
+    color: #555;
+    font-size: 1rem;
+    margin: 0.8rem 0;
+    padding: 0.8rem 1rem;
+    background: #f7fafc;
+    border-radius: 8px;
+    border-left: 3px solid #e6e6e6;
+}
+
+.comment-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.comment-section textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    height: 100px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.comment-section textarea:focus {
+    border-color: #5c85d6;
+    outline: none;
+}
+
+.submit-comment {
+    background: #5c85d6;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.submit-comment:hover {
+    background: #4a6cae;
+}
+
+.comments-list {
+    margin-top: 1.5rem;
+}
+
+.comment {
+    background: #f9f9f9;
+    padding: 1rem;
+    margin: 0.8rem 0;
+    border-radius: 8px;
+    border-left: 3px solid #5c85d6;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* 聊天介面樣式 */
+.chat-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    position: relative;
+    z-index: 10;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    padding: 1rem;
+    background: #5c85d6;
+    color: white;
+    border-radius: 12px 12px 0 0;
+    text-align: center;
+}
+
+.chat-header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.custom-ai-button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    background: linear-gradient(-45deg, #ffd700, #98fb98);
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+    color: #333;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.custom-ai-button:hover {
+    transform: scale(1.05);
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message {
+    max-width: 80%;
+    padding: 1rem;
+    border-radius: 12px;
+    line-height: 1.4;
+    white-space: pre-wrap;
+}
+
+.message.user {
+    align-self: flex-end;
+    background: #5c85d6;
+    color: white;
+}
+
+.message.assistant {
+    align-self: flex-start;
+    background: #f0f2f5;
+    color: #333;
+}
+
+.message.assistant pre {
+    background: #fff;
+    padding: 0.5rem;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.message.assistant.update-notice {
+    color: #666;
+    font-size: 0.85em;
+    font-style: italic;
+}
+
+.message.assistant.thinking {
+    color: #888;
+    font-size: 0.9em;
+    background: #f7f7f7;
+    padding: 0.7rem 1rem;
+    border-radius: 12px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.chat-input {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.chat-input textarea {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    resize: none;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.chat-input button {
+    padding: 0.8rem 1.5rem;
+    background: #5c85d6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.chat-input button:hover {
+    background: #4a6cae;
+}
+
+/* 讓聊天訊息中的 Markdown 內容更美觀 */
+.message.assistant p {
+    margin: 0.5rem 0;
+}
+
+.message.assistant ul, 
+.message.assistant ol {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.message.assistant code {
+    background: #fff;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.settings-modal {
+    max-width: 500px;
+    padding: 20px;
+}
+
+.settings-modal h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#aiSettings {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.settings-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.settings-buttons button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#saveSettings {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#cancelSettings {
+    background-color: #f44336;
+    color: white;
+}
+
+.settings-buttons button:hover {
+    opacity: 0.9;
+}
+
+/* 導航欄樣式 */
+.main-nav {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.main-nav a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* 現有樣式保持不變 */
+
+/* 聊天相關樣式 */
+.chat-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 1rem;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.chat-messages {
+    height: 400px;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.message {
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    max-width: 80%;
+}
+
+.message.user {
+    background-color: #007bff;
+    color: white;
+    margin-left: auto;
+}
+
+.message.ai {
+    background-color: #f1f3f4;
+    color: #333;
+}
+
+.message.error {
+    background-color: #dc3545;
+    color: white;
+}
+
+.chat-input {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.chat-input textarea {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: none;
+}
+
+.chat-input button {
+    padding: 0.5rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: #0056b3;
+}
+
+.custom-ai-button {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.custom-ai-button:hover {
+    background-color: #5a6268;
+}
+
+.settings-modal {
+    max-width: 500px;
+}
+
+.settings-modal textarea {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 0.5rem;
+}
+
+.settings-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}

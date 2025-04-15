@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 聊天助手</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">主頁</a></li>
+            <li><a href="chat.html">AI 聊天助手</a></li>
+            <li><a href="angular.html">Angular玩樂</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- 聊天介面 -->
+        <div class="chat-container">
+            <div class="chat-header">
+                <h1>AI 聊天助手</h1>
+                <button id="customAIButton" class="custom-ai-button">自定義AI</button>
+            </div>
+            <div class="chat-messages"></div>
+            <div class="chat-input">
+                <textarea id="userInput" placeholder="輸入訊息..." rows="3"></textarea>
+                <button id="sendButton">發送</button>
+            </div>
+        </div>
+
+        <!-- 自定義 AI 設定對話框 -->
+        <div id="aiSettingsModal" class="modal">
+            <div class="modal-content settings-modal">
+                <span class="close">&times;</span>
+                <h2>自定義 AI 設定</h2>
+                <textarea id="aiSettings" placeholder="請輸入 AI 的角色設定..." rows="5"></textarea>
+                <div class="settings-buttons">
+                    <button id="saveSettings">確定</button>
+                    <button id="cancelSettings">取消</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 特別的禮物. All rights reserved.</p>
+    </footer>
+
+    <!-- Markdown 解析器 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>
